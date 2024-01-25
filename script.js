@@ -1,11 +1,10 @@
-//your JS code here. If required.
-//your JS code here. If required.
-const circles = document.querySelectorAll('.circle');
-const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next');
+const circles = document.querySelectorAll(".circle");
+const nextBtn = document.querySelector("#next");
+const prevBtn = document.querySelector("#prev");
+
 let currentActive = 1;
 
-nextButton.addEventListener('click', () => {
+nextBtn.addEventListener("click", () => {
   currentActive++;
 
   if (currentActive > circles.length) {
@@ -15,7 +14,7 @@ nextButton.addEventListener('click', () => {
   update();
 });
 
-prevButton.addEventListener('click', () => {
+prevBtn.addEventListener("click", () => {
   currentActive--;
 
   if (currentActive < 1) {
@@ -26,65 +25,21 @@ prevButton.addEventListener('click', () => {
 });
 
 function update() {
-  circles.forEach((circle, index) => {
-    if (index < currentActive) {
-      circle.classList.add('active');
+  circles.forEach((circle, idx) => {
+    if (idx < currentActive) {
+      circle.classList.add("active");
+		
     } else {
-      circle.classList.remove('active');
+      circle.classList.remove("active");
     }
   });
 
   if (currentActive === 1) {
-    prevButton.disabled = true;
+    prevBtn.disabled = true;
   } else if (currentActive === circles.length) {
-    nextButton.disabled = true;
+    nextBtn.disabled = true;
   } else {
-    prevButton.disabled = false;
-    nextButton.disabled = false;
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
   }
 }
-
-
-// const lines = document.querySelectorAll('.line');
-// const prevBtn = document.getElementById('prev');
-// const nextBtn = document.getElementById('next');
-// let currActive = 1;
-
-// nextBtn.addEventListener('click', () => {
-//   currActive++;
-
-//   if (currActive > lines.length) {
-//     currActive = lines.length;
-//   }
-
-//   updateline();
-// });
-
-// prevButton.addEventListener('click', () => {
-//   currActive--;
-
-//   if (currActive < 1) {
-//     currActive = 1;
-//   }
-
-//   updateline();
-// });
-
-// function updateline() {
-//   lines.forEach((line, index) => {
-//     if (index < currActive) {
-//       line.classList.add('active');
-//     } else {
-//       line.classList.remove('active');
-//     }
-//   });
-
-//   if (currActive === 1) {
-//     prevBtn.disabled = true;
-//   } else if (currActive === lines.length) {
-//     nextBtn.disabled = true;
-//   } else {
-//     prevBtn.disabled = false;
-//     nextBtn.disabled = false;
-//   }
-// }
